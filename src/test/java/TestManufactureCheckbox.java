@@ -1,4 +1,3 @@
-package moon;
 
 import java.util.List;
 

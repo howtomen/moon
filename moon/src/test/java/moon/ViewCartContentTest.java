@@ -15,7 +15,7 @@ public class ViewCartContentTest extends TestSuperClass {
 	  
 	 //act
 	  String actualResult = new CartContentPage(driver)
-			  .goToPage()
+			  .goToPage() //could be replaced by instance where we have a page already open. 
 			  .clickCartIcon()
 			  .verifyCartPage();
 	  

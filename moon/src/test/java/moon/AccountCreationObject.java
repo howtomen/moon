@@ -1,5 +1,6 @@
 package moon;
 
+import java.util.ArrayList;
 import java.util.Random;
 
 import org.openqa.selenium.WebDriver;
@@ -148,4 +149,29 @@ public class AccountCreationObject extends PageObjectSuperClass {
 		stateBox.selectByVisibleText("Alabama");
 	}
 
+//  Select each item on list [[SLOWER]]
+	public ArrayList<String> getStateListResults() {
+		ArrayList<String> elementsText = new ArrayList<String>();
+
+		for(int i = 1; i <= 53; i++){
+			getSelect(states).selectByValue(String.valueOf(i));
+			String selectedState = getSelect(states).getFirstSelectedOption().getText();
+			elementsText.add(selectedState);
+	    }
+		return elementsText;
+	}
+	
+////  Change to String the list of options [[FASTER]]
+//	public ArrayList<String> getListResults() {
+//		ArrayList<String> elementsText = new ArrayList<String>();
+//		getSelect(states).selectByValue("1");
+//		String selectedStateText = states.getText();
+//		String[] selectedState = selectedStateText.split("\\n");
+//	
+//		for(int i = 1; i < selectedState.length; i++){
+//			elementsText.add(selectedState[i]);
+//	    }
+//		return elementsText;
+//	}
+	
 }

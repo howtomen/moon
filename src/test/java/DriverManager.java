@@ -1,4 +1,3 @@
-package moon;
 
 import org.openqa.selenium.WebDriver;
 

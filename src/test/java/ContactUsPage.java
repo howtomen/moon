@@ -1,11 +1,7 @@
-package pages;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-
-import moon.ContactUsPage;
-import moon.ContactUsResultPage;
 
 public class ContactUsPage extends PageObjectSuperClass {
 	@FindBy(id="id_contact")

@@ -14,7 +14,7 @@ public class TestSuperClass {
 	
 	@AfterTest
 	public void afterTest() {
-		driver.quit();
+		//driver.quit();
 	}
 
 }

@@ -1,5 +1,3 @@
-package moon;
-
 import java.util.List;
 
 import org.openqa.selenium.By;

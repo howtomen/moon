@@ -3,6 +3,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -15,6 +16,15 @@ public class CategoryWomanPage extends PageObjectSuperClass {
 	
 	@FindBy(css=".product_list p img")
 	WebElement LoadingImg;
+	
+	@FindBy(xpath= "//*[@id=\"layered_price_slider\"]/a[1]")
+	WebElement leftSliderHandle;
+	
+	@FindBy(xpath= "//*[@id=\"layered_price_slider\"]/a[2]")
+	WebElement rightSliderHandle;
+	
+	@FindBy(xpath= "//*[@id=\"layered_price_range\"]")
+	WebElement priceRange;
 	
 	public CategoryWomanPage(WebDriver driverInstance) {
 		super(driverInstance);
@@ -46,5 +56,17 @@ public class CategoryWomanPage extends PageObjectSuperClass {
 			elementsText.add(ListWebelement.get(i).getText());
 	    }
 		return elementsText;
+	}
+
+	public CategoryWomanPage adjustPriceSlider() {
+		for (int i = 0; i < 5; i++) {
+			leftSliderHandle.sendKeys(Keys.ARROW_RIGHT);
+			rightSliderHandle.sendKeys(Keys.ARROW_LEFT);
+		}
+		return this;
+	}
+
+	public String verifyPriceSlider() {
+		return priceRange.getText();
 	}
 }

@@ -1,4 +1,4 @@
-
+package support;
 
 import org.openqa.selenium.WebDriver;
 
@@ -8,12 +8,15 @@ public abstract class DriverManager {
 	protected abstract void stopService();
 	protected abstract void createDriver();
 	
-	protected WebDriver getDriver() {
+	//protected WebDriver getDriver() {
+	public WebDriver getDriver() {
 		createDriver();
 		return driver;
 	}
 	
-	protected void quitDriver() {
-		//driver.quit();
+	
+	//protected void quitDriver() {
+	public void quitDriver() {
+		driver.quit();
 	}
 }

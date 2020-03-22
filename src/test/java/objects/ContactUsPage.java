@@ -11,7 +11,6 @@ public class ContactUsPage extends PageObjectSuperClass {
 	
 	@FindBy(id="email")
 	WebElement emailInput;
-
 	
 	@FindBy(id="message")
 	WebElement msgTextBox;

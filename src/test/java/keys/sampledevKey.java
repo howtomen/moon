@@ -8,6 +8,8 @@ public class sampledevKey {
 	private String loginEmail = "";
 	private String loginPassword = "";
 	private String loginCustomerName = "";
+	private String InvoiceFileName = ""; 		// example "IN161574.pdf"
+	private String downloadLocation = "";		// example "C:\\Users\\hekat\\Downloads"
 
 	
 	public String getValidWebEmail() {
@@ -20,5 +22,13 @@ public class sampledevKey {
 	
 	public String getCustomerName() {
 		return loginCustomerName;
+	}
+	
+	public String getInvoiceFileName() {
+		return InvoiceFileName;
+	}
+	
+	public String getdownloadLocation() {
+		return downloadLocation;
 	}
 }

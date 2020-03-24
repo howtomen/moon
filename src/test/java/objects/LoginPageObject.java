@@ -72,4 +72,9 @@ public class LoginPageObject extends PageObjectSuperClass {
 		return new WishListPage(driver);
 	}
 
+	public OrderHistoryAndDetailPage clickOrderHistoryAndDetails() {
+		getMyAccountLink("Order history and details").click();
+		return new OrderHistoryAndDetailPage(driver);
+	}
+
 }

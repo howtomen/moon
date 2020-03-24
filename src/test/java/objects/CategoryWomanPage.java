@@ -106,7 +106,6 @@ public class CategoryWomanPage extends PageObjectSuperClass {
 	}
 
 	public String getFirstItemandCloseModels() {
-		iframeclose.click();
 		String name = productName.getText();
 		driver.switchTo().defaultContent();
 		iframeclose.click();

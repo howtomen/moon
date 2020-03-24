@@ -5,10 +5,10 @@ package keys;
 // Rename file to devKey.java (so it will be part of the .gitignore)
 
 public class sampledevKey {
-	private String loginEmail = "";
-	private String loginPassword = "";
-	private String loginCustomerName = "";
-	private String InvoiceFileName = ""; 		// example "IN161574.pdf"
+	private String loginEmail = ""; 			// example "testtesttest2345@test.com"
+	private String loginPassword = "";			// example "123456"
+	private String loginCustomerName = "";		// example "John Smith"
+	private String InvoiceFileName = ""; 		// example "IN170879.pdf"
 	private String downloadLocation = "";		// example "C:\\Users\\hekat\\Downloads"
 
 	

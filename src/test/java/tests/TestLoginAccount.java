@@ -15,6 +15,7 @@ public class TestLoginAccount extends TestSuperClass {
 	public void loginUserCorrectly() {
 		String WebEmail = new devKey().getValidWebEmail();
 		String WebPassword = new devKey().getValidWebPassword();
+		
 		String expectedSignedInText = new devKey().getCustomerName();
 		
 		String actualSignedInText = new LoginPageObject(driver)

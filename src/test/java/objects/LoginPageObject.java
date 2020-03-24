@@ -1,5 +1,6 @@
 package objects;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -8,16 +9,19 @@ import org.openqa.selenium.support.FindBy;
 public class LoginPageObject extends PageObjectSuperClass {
 	
 	@FindBy(id="email")
-	WebElement EmailInput;
+	private WebElement EmailInput;
 	
 	@FindBy(id="passwd")
-	WebElement PasswordInput;
+	private WebElement PasswordInput;
 	
 	@FindBy(id="SubmitLogin")
-	WebElement signInButton;
+	private WebElement signInButton;
 	
 	@FindBy(css=".account")
 	private WebElement customerName;
+	
+	@FindBy(css=".myaccount-link-list li")
+	private WebElement accountLinkList;
 
 	public LoginPageObject(WebDriver driverInstance) {
 		super(driverInstance);
@@ -41,6 +45,15 @@ public class LoginPageObject extends PageObjectSuperClass {
 
 	public String getSignedInText() {
 		return customerName.getText();
+	}
+
+	public MyAddressesPageObject clickMyAddressButton() {
+		getMyAccountLink("My addresses").click();
+		return new MyAddressesPageObject(driver);
+	}
+	
+	private WebElement getMyAccountLink(String linkName) {
+		return accountLinkList.findElement(By.xpath("//*[contains(text(),'" + linkName + "')]/ancestor::a"));
 	}
 
 }

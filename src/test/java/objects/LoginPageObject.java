@@ -22,6 +22,12 @@ public class LoginPageObject extends PageObjectSuperClass {
 	
 	@FindBy(css=".myaccount-link-list li")
 	private WebElement accountLinkList;
+	
+	@FindBy(css=".menu-content li:nth-child(1) a")
+	private WebElement womenCatagoryButton;
+	
+	@FindBy(css=".lnk_wishlist a")
+	private WebElement MyWishListButton;
 
 	public LoginPageObject(WebDriver driverInstance) {
 		super(driverInstance);
@@ -54,6 +60,16 @@ public class LoginPageObject extends PageObjectSuperClass {
 	
 	private WebElement getMyAccountLink(String linkName) {
 		return accountLinkList.findElement(By.xpath("//*[contains(text(),'" + linkName + "')]/ancestor::a"));
+	}
+
+	public CategoryWomanPage clickWomenCatagory() {
+		womenCatagoryButton.click();
+		return new CategoryWomanPage(driver);
+	}
+
+	public WishListPage GotoMyWishList() {
+		MyWishListButton.click();
+		return new WishListPage(driver);
 	}
 
 }

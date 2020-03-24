@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.Dimension;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -70,4 +71,46 @@ public class CategoryWomanPage extends PageObjectSuperClass {
 	public String verifyPriceSlider() {
 		return priceRange.getText();
 	}
+	
+	@FindBy(css="#center_column > ul > li:nth-child(1) a.quick-view-mobile")
+	private WebElement FirstProductQuickView;
+	
+	@FindBy(css=".fancybox-wrap")
+	private WebElement ModalBox;
+	
+	@FindBy(css=".fancybox-iframe")
+	private WebElement productIframe;
+	
+	@FindBy(id="wishlist_button")
+	private WebElement iframeWishListButton;
+	
+	@FindBy(css=".fancybox-close")
+	private WebElement iframeclose;
+	
+	@FindBy(css="h1[itemprop='name']")
+	private WebElement productName;
+
+	public CategoryWomanPage clickOnFirstItem() {
+		driver.manage().window().setSize(new Dimension(1024,768));
+		FirstProductQuickView.click();
+		return this;
+	}
+
+	public CategoryWomanPage addToWishList() {
+		WebDriverWait wait = new WebDriverWait(driver, 20);
+		wait.until(ExpectedConditions.visibilityOf(ModalBox));
+		
+		driver.switchTo().frame(productIframe);
+		iframeWishListButton.click();
+		return this;
+	}
+
+	public String getFirstItemandCloseModels() {
+		String name = productName.getText();
+		driver.switchTo().defaultContent();
+		iframeclose.click();
+		return name;
+	}
+	
+	
 }

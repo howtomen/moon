@@ -29,5 +29,9 @@ public class CartContentPage extends PageObjectSuperClass{
 		WebElement cartTitle = driver.findElement(By.id("cart_title"));
 		return cartTitle.getText();
 	}
+	
+	public String productCount() {
+		return driver.findElement(By.xpath("//*[@id=\"summary_products_quantity\"]")).getText();
+	}
 
 }

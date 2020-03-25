@@ -5,11 +5,11 @@ package keys;
 // Rename file to devKey.java (so it will be part of the .gitignore)
 
 public class sampledevKey {
-	private String loginEmail = ""; 			// example "testtesttest2345@test.com"
-	private String loginPassword = "";			// example "123456"
-	private String loginCustomerName = "";		// example "John Smith"
-	private String InvoiceFileName = ""; 		// example "IN170879.pdf"
-	private String downloadLocation = "";		// example "C:\\Users\\hekat\\Downloads"
+	private String loginEmail = ""; 			// KAT example "testtesttest2345@test.com"
+	private String loginPassword = "";			// KAT example "123456"
+	private String loginCustomerName = "";		// KAT example "John Smith"
+	private String InvoiceFileName = ""; 		// KAT example "IN170879.pdf"
+	private String downloadLocation = "";		// KAT example "C:\\Users\\hekat\\Downloads" //change download path RPR
 
 	
 	public String getValidWebEmail() {

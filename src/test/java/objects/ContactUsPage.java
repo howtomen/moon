@@ -46,5 +46,10 @@ public class ContactUsPage extends PageObjectSuperClass {
 		sendButton.click();
 		return new ContactUsResultPage(driver);
 	}
+	
+	public ContactUsPage enterInfoNoEmail() {
+		msgTextBox.sendKeys(message);
+		return this;
+	}
 
 }

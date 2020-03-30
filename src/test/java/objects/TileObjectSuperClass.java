@@ -29,6 +29,7 @@ public class TileObjectSuperClass extends PageObjectSuperClass {
 		String cartButtonPath = "/div/div[2]/div[2]/a[1]/span";
 		Tile.findElement(By.xpath(path+cartButtonPath)).click(); 
 		return this;
+		
 	}
 	
 	public TileObjectSuperClass quickView(String path) {

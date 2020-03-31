@@ -1,5 +1,7 @@
 package objects;
 
+import java.util.List;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -75,6 +77,29 @@ public class LoginPageObject extends PageObjectSuperClass {
 	public OrderHistoryAndDetailPage clickOrderHistoryAndDetails() {
 		getMyAccountLink("Order history and details").click();
 		return new OrderHistoryAndDetailPage(driver);
+	}
+	
+	@FindBy(css=".header_user_info")
+	private List<WebElement> navHeaderUserInfo;
+	
+	@FindBy(css=".header_user_info")
+	private WebElement signoutButton;
+	
+	@FindBy(css=".page-heading + div p")
+	private WebElement errormsg1;
+	
+	@FindBy(css=".page-heading + div ol li")
+	private WebElement errormsg2;
+
+	public LoginPageObject ifLoggedinThenLogout() {
+		if(navHeaderUserInfo.size() == 2) {
+			signoutButton.click();
+		}
+		return this;
+	}
+
+	public String getAlertText() {
+		return errormsg1.getText() + " " + errormsg2.getText();
 	}
 
 }

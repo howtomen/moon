@@ -10,8 +10,12 @@ public class sampledevKey {
 	private String loginCustomerName = "";		// KAT example "John Smith"
 	private String InvoiceFileName = ""; 		// KAT example "IN170879.pdf"
 	private String downloadLocation = "";		// KAT example "C:\\Users\\hekat\\Downloads" //change download path RPR
-
 	
+	private String MySQLUsername = ""; 			// most probably "root"
+	private String MySQLPassword = "";
+	private int MySQLPort = 3306;				// most probably 3306 
+
+	// Login Methods
 	public String getValidWebEmail() {
 		return loginEmail;
 	}
@@ -31,4 +35,19 @@ public class sampledevKey {
 	public String getdownloadLocation() {
 		return downloadLocation;
 	}
+	
+	
+	// SQL Methods
+	public String getMySQLUsername() {
+		return MySQLUsername;
+	}
+	
+	public String getMySQLPassword() {
+		return MySQLPassword;
+	}
+	
+	public int getMySQLPort() {
+		return MySQLPort;
+	}
+
 }

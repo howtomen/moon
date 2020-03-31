@@ -1,11 +1,11 @@
 package tests;
 
 import java.util.ArrayList;
-
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import objects.AccountCreationObject;
+import support.DatabaseSQLConnection;
 
 public class TestAccountCreationStateList extends TestSuperClass {
 
@@ -13,12 +13,12 @@ public class TestAccountCreationStateList extends TestSuperClass {
 	// I want to 'Check if all the states are available on the create account dropdown list'
 	// So that 'No user location will be excluded'
 	@Test
-	public void checkIfAllStateListed() {
+	public void checkIfAllStateListed() throws Exception {
 		// arrange
 		boolean allResultsAsExpected = true;
 		ArrayList<String> missingStates = new ArrayList<String>();
-		String[] expectedListResults = {"Alabama","Alaska","Arizona","Arkansas","California","Colorado","Connecticut","Delaware","District of Columbia","Florida","Georgia","Hawaii","Idaho","Illinois","Indiana","Iowa","Kansas","Kentucky","Louisiana","Maine","Maryland","Massachusetts","Michigan","Minnesota","Mississippi","Missouri","Montana","Nebraska","Nevada","New Hampshire","New Jersey","New Mexico","New York","North Carolina","North Dakota","Ohio","Oklahoma","Oregon","Pennsylvania","Puerto Rico","Rhode Island","South Carolina","South Dakota","Tennessee","Texas","US Virgin Islands","Utah","Vermont","Virginia","Washington","West Virginia","Wisconsin","Wyoming"};
-
+		ArrayList<String> expectedListResults = new DatabaseSQLConnection().canGetAllStates();
+		
 		// act
 		ArrayList<String> actualListResults = new AccountCreationObject(driver)
 				.goToPage()
@@ -27,13 +27,12 @@ public class TestAccountCreationStateList extends TestSuperClass {
 				.getStateListResults();
 
 		// assert
-		for(int i=0; i < expectedListResults.length; i++){
-			if (actualListResults.indexOf(expectedListResults[i]) == -1) {
-				missingStates.add(expectedListResults[i]);
-//						System.out.println(expectedListResults[i]);
+		for(int i=0; i < expectedListResults.size(); i++){
+			if (actualListResults.indexOf(expectedListResults.get(i)) == -1) {
+				missingStates.add(expectedListResults.get(i));
 				allResultsAsExpected = false;
 			}
 		}
-		Assert.assertTrue(allResultsAsExpected, "  Missing states from Dropdown List: \n \n" + missingStates + "\n \n");
+		Assert.assertTrue(allResultsAsExpected, "\n \n  Missing states from Dropdown List: \n" + missingStates + "\n \n");
 	}
 }

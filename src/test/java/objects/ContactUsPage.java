@@ -52,4 +52,9 @@ public class ContactUsPage extends PageObjectSuperClass {
 		return this;
 	}
 
+	public ContactUsPage enterEmailOnly(String webEmail) {
+		emailInput.sendKeys(webEmail);
+		return this;
+	}
+
 }
